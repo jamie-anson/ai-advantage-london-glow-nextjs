@@ -1,103 +1,101 @@
-import Image from "next/image";
+import type { Metadata } from 'next';
 
-export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+// --- Structured Data ---
+const workshopData = {
+  name: "AI Advantage Workshop",
+  startDate: "2025-09-20",
+  endDate: "2025-09-20",
+  startTime: "09:00",
+  endTime: "17:00",
+  price: "250",
+  priceCurrency: "GBP",
+  description: "An exclusive invite-only workshop to upgrade how professionals work with AI—with clarity, tools, and style.",
+  image: "https://aiworkshop.london/images/ai-advantage-1.jpg",
+  locationName: "W London",
+  locationAddress: "10 Wardour Street",
+  locationCity: "London",
+  locationPostalCode: "W1D 6QF",
+  locationCountry: "United Kingdom",
+  organizerName: "AI Advantage",
+  organizerUrl: "https://aiworkshop.london"
+};
+
+const eventStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: workshopData.name,
+  startDate: `${workshopData.startDate}T${workshopData.startTime}:00+01:00`,
+  endDate: `${workshopData.endDate}T${workshopData.endTime}:00+01:00`,
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  eventStatus: "https://schema.org/EventScheduled",
+  description: workshopData.description,
+  image: workshopData.image,
+  location: {
+    "@type": "Place",
+    name: workshopData.locationName,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: workshopData.locationAddress,
+      addressLocality: workshopData.locationCity,
+      postalCode: workshopData.locationPostalCode,
+      addressCountry: workshopData.locationCountry
+    }
+  },
+  offers: {
+    "@type": "Offer",
+    url: workshopData.organizerUrl,
+    price: workshopData.price,
+    priceCurrency: workshopData.priceCurrency,
+    availability: "https://schema.org/InStock",
+    validFrom: new Date().toISOString().split('T')[0]
+  },
+  organizer: {
+    "@type": "Organization",
+    name: workshopData.organizerName,
+    url: workshopData.organizerUrl
+  },
+  performer: {
+    "@type": "Organization",
+    name: workshopData.organizerName
+  }
+};
+
+const organizationStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "AI Advantage",
+  url: "https://aiworkshop.london",
+  logo: "https://aiworkshop.london/images/ai-ldn-logo.png",
+  sameAs: []
+};
+
+const courseStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  name: workshopData.name,
+  description: workshopData.description,
+  provider: {
+    "@type": "Organization",
+    name: workshopData.organizerName,
+    sameAs: workshopData.organizerUrl
+  }
+};
+
+export const metadata: Metadata = {
+  title: 'AI Advantage | The Smartest Day You\'ll Spend This Year',
+  description: 'A premium one-day workshop to upgrade how professionals work with AI—with clarity, tools, and style. Held at the W Hotel, London.',
+  other: {
+    'application/ld+json': JSON.stringify([
+      eventStructuredData,
+      organizationStructuredData,
+      courseStructuredData
+    ]),
+  },
+};
+
+import HomePageClient from '@/components/HomePageClient';
+
+export default function HomePage() {
+  return <HomePageClient />;
 }
