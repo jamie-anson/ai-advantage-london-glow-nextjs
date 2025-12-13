@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import ButtonPrimary from '../ButtonPrimary';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion';
 
 const tickets = [
   {
@@ -21,33 +20,10 @@ const tickets = [
   }
 ];
 
-const faqItems = [
-  {
-    question: "Is it deductible or reimbursable?",
-    answer: "Yes. It&apos;s a legit business training expense. The receipt includes all required info."
-  },
-  {
-    question: "What&apos;s on the receipt?",
-    answer: "Attendee name, company name (if filled in), date, VAT number, payment confirmation, and a breakdown of what&apos;s included."
-  },
-  {
-    question: "What makes this certificate different?",
-    answer: "It&apos;s an NFT, not a PDF — minted on a public blockchain. Time-stamped, tamper-proof, and publicly viewable (or keep it private — your call)."
-  },
-  {
-    question: "Will they actually build something in one day?",
-    answer: "Yes. This is applied, not academic. You&apos;ll leave with a real prototype — and a plan to take it further."
-  },
-  {
-    question: "Can I just pay and send the receipt to finance?",
-    answer: "Exactly that. It&apos;s set up for fast payment, no red tape."
-  }
-];
-
 const TicketsSection = () => {
   const [isInView, setIsInView] = useState(false);
   const router = useRouter();
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -58,10 +34,10 @@ const TicketsSection = () => {
       },
       { threshold: 0.3 }
     );
-    
+
     const target = document.getElementById('tickets');
     if (target) observer.observe(target);
-    
+
     return () => {
       if (target) observer.unobserve(target);
     };
@@ -80,10 +56,10 @@ const TicketsSection = () => {
               It&apos;s a <span className="text-brand-green">Signal.</span>
             </h2>
           </div>
-          
+
           <div className="grid grid-cols-1 gap-8 max-w-2xl mx-auto">
             {tickets.map((ticket, index) => (
-              <div 
+              <div
                 key={index}
                 className={cn(
                   "rounded-2xl p-8 border backdrop-blur-sm relative overflow-hidden transition-all duration-700",
@@ -97,7 +73,7 @@ const TicketsSection = () => {
                 {/* Background image with fade effect */}
                 <div className="absolute inset-0 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-0"></div>
-                  <div 
+                  <div
                     className={cn(
                       "absolute inset-0 bg-cover bg-center opacity-30 transition-all duration-1000",
                       isInView ? "opacity-30 translate-x-0" : "opacity-0 -translate-x-1/2",
@@ -112,42 +88,42 @@ const TicketsSection = () => {
                 </div>
                 {/* Content wrapper */}
                 <div className="relative z-10">
-                {ticket.popular && (
-                  <div className="absolute top-4 right-4 bg-brand-fuchsia text-white text-xs px-3 py-1 rounded-full">
-                    POPULAR CHOICE
+                  {ticket.popular && (
+                    <div className="absolute top-4 right-4 bg-brand-fuchsia text-white text-xs px-3 py-1 rounded-full">
+                      POPULAR CHOICE
+                    </div>
+                  )}
+
+                  <div className="text-right">
+                    <div className="mb-6">
+                      <h3 className="text-4xl font-serif mb-8">{ticket.name}</h3>
+                    </div>
+                    <div className="mb-6">
+                      <div className="text-4xl font-bold">{ticket.price}</div>
+                      {ticket.priceSubtitle && (
+                        <p className="text-sm text-white/70 mt-1 italic">{ticket.priceSubtitle}</p>
+                      )}
+                    </div>
                   </div>
-                )}
-                
-                <div className="text-right">
-                  <div className="mb-6">
-                    <h3 className="text-4xl font-serif mb-8">{ticket.name}</h3>
+
+                  <ul className="mb-8 space-y-3">
+                    {ticket.features.map((feature, i) => (
+                      <li key={i} className="flex items-center justify-end gap-3">
+                        <span className="text-right">{feature}</span>
+                        <span className="w-5 h-5 flex-shrink-0 rounded-full bg-brand-green/20 flex items-center justify-center">
+                          <span className="w-2 h-2 bg-brand-green rounded-full"></span>
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-auto flex justify-end">
+                    <ButtonPrimary onClick={() => router.push('/request-invite')}>
+                      Request Invite
+                    </ButtonPrimary>
                   </div>
-                  <div className="mb-6">
-                    <div className="text-4xl font-bold">{ticket.price}</div>
-                    {ticket.priceSubtitle && (
-                      <p className="text-sm text-white/70 mt-1 italic">{ticket.priceSubtitle}</p>
-                    )}
-                  </div>
-                </div>
-                
-                <ul className="mb-8 space-y-3">
-                  {ticket.features.map((feature, i) => (
-                    <li key={i} className="flex items-center justify-end gap-3">
-                      <span className="text-right">{feature}</span>
-                      <span className="w-5 h-5 flex-shrink-0 rounded-full bg-brand-green/20 flex items-center justify-center">
-                        <span className="w-2 h-2 bg-brand-green rounded-full"></span>
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-                
-                <div className="mt-auto flex justify-end">
-                  <ButtonPrimary onClick={() => router.push('/request-invite')}>
-                    Request Invite
-                  </ButtonPrimary>
-                </div>
                 </div>  {/* Close content wrapper */}
-                
+
                 {ticket.popular && (
                   <p className="mt-4 text-sm italic text-white/70">
                     Designed for duos. Because success is more fun shared.
@@ -157,7 +133,7 @@ const TicketsSection = () => {
             ))}
           </div>
 
-          <div className={cn(
+          {/* <div className={cn(
             "mt-24 max-w-4xl mx-auto text-center transition-all duration-700",
             isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}>
@@ -228,14 +204,14 @@ const TicketsSection = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
 
       {/* FAQ Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className={cn(
+          {/* <div className={cn(
             "max-w-4xl mx-auto transition-all duration-700",
             isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}>
@@ -259,7 +235,7 @@ const TicketsSection = () => {
                 </AccordionItem>
               ))}
             </Accordion>
-          </div>
+          </div> */}
         </div>
       </section>
     </>

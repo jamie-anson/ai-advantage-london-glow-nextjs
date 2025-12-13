@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description: "Unlock Your Business's Potential with AI",
 };
 
+import SiteHeader from "@/components/SiteHeader";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -20,7 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <SiteHeader />
+          {children}
+        </Providers>
 
         {/* Google tag (gtag.js) */}
         <Script
