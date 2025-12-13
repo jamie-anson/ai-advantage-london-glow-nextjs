@@ -1,29 +1,6 @@
 "use client";
 
-import { motion } from 'framer-motion';
 
-const curriculum = [
-    {
-        title: "How to build without needing a developer",
-        desc: "AI + no-code = creativity unlocked.",
-        icon: "✔"
-    },
-    {
-        title: "Bend the AI tools to your will",
-        desc: "A clear, simple method that works across ChatGPT, Claude, Gemini and more — so you think in systems, not one-off tricks.",
-        icon: "✔"
-    },
-    {
-        title: "Turn ideas in your head into things that exist",
-        desc: "You’ll learn how to translate imagination into structure — and structure into a working prototype.",
-        icon: "✔"
-    },
-    {
-        title: "Vibe engineering",
-        desc: "Building is hard, so we shape the environment, rhythm and mindset to make it feel energising, not overwhelming.",
-        icon: "✔"
-    }
-];
 const CourseWhatSection = () => {
     return (
         <section className="py-32 bg-transparent text-[#F0F0F0] border-t border-white/5 relative overflow-hidden">

@@ -1,17 +1,6 @@
 "use client";
 
-import { motion } from 'framer-motion';
-
-const items = [
-    "A full day of hands-on training",
-    "Simple workbook + templates",
-    "Your first small AI-built project",
-    "Guidance from someone patient and practical",
-    "Lunch + coffee (the good stuff)",
-    "A short PDF you can send to your boss (if you want reimbursement)",
-    "A certificate of completion",
-    "30-day follow-up tips by email"
-];
+// import { motion } from 'framer-motion';
 
 const CourseIncludedSection = () => {
     return (

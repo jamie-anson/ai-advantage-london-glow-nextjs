@@ -1,13 +1,5 @@
 "use client";
 
-import { motion } from 'framer-motion';
-
-const locations = [
-    "King’s Cross",
-    "Holborn",
-    "Shoreditch",
-    "Central London hotel venues"
-];
 
 const CourseLocationsSection = () => {
     return (

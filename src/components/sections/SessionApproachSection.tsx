@@ -68,7 +68,7 @@ const SessionApproachSection = () => {
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-start gap-4">
                                         <span className="text-brand-green mt-1">→</span>
-                                        <span className="text-white text-xl font-light">{item}</span>
+                                        <p className="text-white/80 leading-relaxed font-light">&quot;I need someone to show me that the crazy idea I have isn&apos;t actually crazy.&quot;</p>
                                     </li>
                                 ))}
                             </ul>
@@ -116,7 +116,7 @@ const SessionApproachSection = () => {
                         >
                             <div className="text-brand-green/40 font-mono text-sm mb-4 group-hover:text-brand-green transition-colors">0{index + 1}</div>
                             <p className="text-lg text-white/90 font-light leading-relaxed">
-                                You'll see <span className="text-white font-normal">{item}</span>
+                                You&apos;ll see <span className="text-white font-normal">{item}</span>
                             </p>
                         </motion.div>
                     ))}

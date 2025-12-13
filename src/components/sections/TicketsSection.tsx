@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import ButtonPrimary from '../ButtonPrimary';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion';
 
 const tickets = [
   {
@@ -18,29 +17,6 @@ const tickets = [
     ],
     bgClass: "bg-gradient-to-br from-black to-muted border-brand-green/40",
     popular: false
-  }
-];
-
-const faqItems = [
-  {
-    question: "Is it deductible or reimbursable?",
-    answer: "Yes. It&apos;s a legit business training expense. The receipt includes all required info."
-  },
-  {
-    question: "What&apos;s on the receipt?",
-    answer: "Attendee name, company name (if filled in), date, VAT number, payment confirmation, and a breakdown of what&apos;s included."
-  },
-  {
-    question: "What makes this certificate different?",
-    answer: "It&apos;s an NFT, not a PDF — minted on a public blockchain. Time-stamped, tamper-proof, and publicly viewable (or keep it private — your call)."
-  },
-  {
-    question: "Will they actually build something in one day?",
-    answer: "Yes. This is applied, not academic. You&apos;ll leave with a real prototype — and a plan to take it further."
-  },
-  {
-    question: "Can I just pay and send the receipt to finance?",
-    answer: "Exactly that. It&apos;s set up for fast payment, no red tape."
   }
 ];
 
