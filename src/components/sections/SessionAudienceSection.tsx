@@ -13,8 +13,7 @@ const SessionAudienceSection = () => {
                 <div className="grid md:grid-cols-2 gap-16 items-center">
 
                     <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+                        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                     >
                         <h2 className="text-5xl md:text-6xl font-serif font-bold text-white mb-8">
@@ -32,8 +31,7 @@ const SessionAudienceSection = () => {
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
+                        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
                         <ul className="space-y-6">
@@ -56,8 +54,7 @@ const SessionAudienceSection = () => {
                 {/* --- Merged Outcomes Section (Walk away with) --- */}
                 <div className="mt-32 border-t border-white/10 pt-24">
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
                         className="text-center mb-16"
                     >
@@ -76,8 +73,7 @@ const SessionAudienceSection = () => {
                         ].map((item, i) => (
                             <motion.div
                                 key={i}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: 0.4 + (i * 0.1) }}
                                 className="flex items-center gap-6 p-6 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors"
                             >

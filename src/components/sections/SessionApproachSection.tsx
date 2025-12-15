@@ -18,7 +18,6 @@ const SessionApproachSection = () => {
                     <div className="grid md:grid-cols-2 gap-16 items-center">
                         {/* Left Column: What it isn't */}
                         <motion.div
-                            initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.8 }}
@@ -47,7 +46,6 @@ const SessionApproachSection = () => {
 
                         {/* Right Column: What it is */}
                         <motion.div
-                            initial={{ opacity: 0, x: 30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.8, delay: 0.2 }}
@@ -81,16 +79,14 @@ const SessionApproachSection = () => {
 
                 <div className="text-center mb-16">
                     <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                         className="text-4xl md:text-5xl font-serif font-bold text-white mb-6"
                     >
                         The approach: <span className="italic text-brand-green">lead by example</span>
                     </motion.h2>
                     <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.1 }}
                         className="text-xl text-white/70 max-w-3xl mx-auto font-light"
                     >
@@ -109,8 +105,7 @@ const SessionApproachSection = () => {
                     ].map((item, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
                             className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group"
                         >
@@ -125,7 +120,6 @@ const SessionApproachSection = () => {
                 {/* --- Project Beacon Intro Section (Moved Here) --- */}
                 <div className="container mx-auto max-w-4xl mb-24">
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8 }}
@@ -167,8 +161,7 @@ const SessionApproachSection = () => {
                 </div>
 
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 1, scale: 1 }}
                     transition={{ duration: 1, delay: 0.5 }}
                     className="mt-20 text-center"
                 >

@@ -22,8 +22,7 @@ const SessionAgendaSection = () => {
         <section ref={ref} className="py-24 px-6 relative z-10">
             <div className="container mx-auto max-w-4xl">
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     className="mb-16 md:mb-24"
                 >
@@ -37,8 +36,7 @@ const SessionAgendaSection = () => {
                     {schedule.map((slot, i) => (
                         <motion.div
                             key={i}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 1, x: 0 }}
                             transition={{ duration: 0.5, delay: i * 0.1 }}
                             className={`relative pl-8 md:pl-16 ${slot.isBreak ? 'opacity-60' : ''}`}
                         >

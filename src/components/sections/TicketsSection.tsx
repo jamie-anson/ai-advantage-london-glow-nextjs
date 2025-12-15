@@ -21,16 +21,16 @@ const tickets = [
 ];
 
 const TicketsSection = () => {
-  const [isInView, setIsInView] = useState(false);
+  const [isInView, setIsInView] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-          observer.unobserve(entry.target);
-        }
+        // if (entry.isIntersecting) {
+        //   setIsInView(true);
+        //   observer.unobserve(entry.target);
+        // }
       },
       { threshold: 0.3 }
     );

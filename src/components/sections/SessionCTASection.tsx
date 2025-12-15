@@ -16,8 +16,7 @@ const SessionCTASection = () => {
 
             <div className="container mx-auto max-w-4xl relative z-10">
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
                     <h2 className="text-5xl md:text-7xl font-serif font-bold text-white mb-8">
