@@ -166,27 +166,16 @@ const ShowcaseItem = memo(({
 ShowcaseItem.displayName = 'ShowcaseItem';
 
 const SessionHeroSection = () => {
-    const [isInView, setIsInView] = useState(false);
+    const [isInView, setIsInView] = useState(true);
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const sectionRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsInView(true);
-                    observer.unobserve(entry.target);
-                }
-            },
-            { threshold: 0.1 }
-        );
-
-        const node = sectionRef.current;
-        if (node) observer.observe(node);
-
-        return () => {
-            if (node) observer.unobserve(node);
-        };
+        // We still want the observer if we want to trigger *re-animations* or analytics, 
+        // but for the Hero, we should default to true so it shows up immediately.
+        // Actually, let's keep the logic simple: Default true. 
+        // The observer is redundant if we start true, but maybe we want to keep it if we want to support "not in view yet" logic? 
+        // No, Hero is always in view.
     }, []);
 
     return (
@@ -199,7 +188,6 @@ const SessionHeroSection = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-start max-w-6xl mx-auto mt-12">
                     {/* Left Column - Title & Image */}
                     <motion.div
-                        initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 1.2, ease: "easeOut" }}
                         className="text-left flex flex-col items-start"
@@ -228,7 +216,6 @@ const SessionHeroSection = () => {
 
                     {/* Right Column - Content */}
                     <motion.div
-                        initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
                         className="text-left space-y-8 md:mt-32"
