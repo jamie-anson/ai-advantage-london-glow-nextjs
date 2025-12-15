@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
- 
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://aiworkshop.london';
 
@@ -18,6 +18,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/privacy-policy`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/session`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/one-day-course`,
       lastModified: new Date(),
     },
   ]

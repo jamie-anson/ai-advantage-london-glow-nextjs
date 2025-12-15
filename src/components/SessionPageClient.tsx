@@ -6,17 +6,17 @@ import dynamic from 'next/dynamic';
 import CustomCursor from '@/components/CustomCursor';
 import AnimatedBackground from '@/components/AnimatedBackground';
 import Footer from '@/components/Footer';
+import SessionHeroSection from '@/components/sections/SessionHeroSection';
 
 // --- Lazy Load Sections ---
 const SectionLoader = () => <div className="h-96 w-full" />;
 
-const SessionHeroSection = dynamic(() => import('@/components/sections/SessionHeroSection'), { loading: () => <SectionLoader />, ssr: false });
-const SessionApproachSection = dynamic(() => import('@/components/sections/SessionApproachSection'), { loading: () => <SectionLoader />, ssr: false });
-const SessionAgendaSection = dynamic(() => import('@/components/sections/SessionAgendaSection'), { loading: () => <SectionLoader />, ssr: false });
-const SessionAudienceSection = dynamic(() => import('@/components/sections/SessionAudienceSection'), { loading: () => <SectionLoader />, ssr: false });
-const SessionCTASection = dynamic(() => import('@/components/sections/SessionCTASection'), { loading: () => <SectionLoader />, ssr: false });
-const AboutJamieSection = dynamic(() => import('@/components/sections/AboutJamieSection'), { loading: () => <SectionLoader />, ssr: false });
-const TicketsSection = dynamic(() => import('@/components/sections/TicketsSection'), { loading: () => <SectionLoader />, ssr: false });
+const SessionApproachSection = dynamic(() => import('@/components/sections/SessionApproachSection'), { loading: () => <SectionLoader /> });
+const SessionAgendaSection = dynamic(() => import('@/components/sections/SessionAgendaSection'), { loading: () => <SectionLoader /> });
+const SessionAudienceSection = dynamic(() => import('@/components/sections/SessionAudienceSection'), { loading: () => <SectionLoader /> });
+const SessionCTASection = dynamic(() => import('@/components/sections/SessionCTASection'), { loading: () => <SectionLoader /> });
+const AboutJamieSection = dynamic(() => import('@/components/sections/AboutJamieSection'), { loading: () => <SectionLoader /> });
+const TicketsSection = dynamic(() => import('@/components/sections/TicketsSection'), { loading: () => <SectionLoader /> });
 
 export default function SessionPageClient() {
     return (
