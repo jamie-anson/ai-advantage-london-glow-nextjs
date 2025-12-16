@@ -67,7 +67,7 @@ const AnimatedBackground = () => {
   }, []);
 
   return (
-    <div ref={bgRef} className="fixed inset-0 overflow-hidden mix-blend-normal">
+    <div ref={bgRef} className="fixed inset-0 overflow-hidden mix-blend-normal pointer-events-none">
       {/* Deep base layer - rich dark background */}
       <div className="absolute inset-0 bg-black/95"></div>
 

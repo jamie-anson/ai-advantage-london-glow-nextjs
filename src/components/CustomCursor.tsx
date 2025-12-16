@@ -1,24 +1,21 @@
-
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 const CustomCursor = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const cursorRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     // Check if the device is mobile
     const checkIfMobile = () => {
-      setIsMobile(window.innerWidth <= 768); // 768px is a common breakpoint for tablets
+      setIsMobile(window.innerWidth <= 768);
     };
 
     // Initial check
     checkIfMobile();
 
-    // Add resize listener to update on orientation changes
+    // Add resize listener
     window.addEventListener('resize', checkIfMobile);
 
     return () => {
@@ -35,47 +32,74 @@ const CustomCursor = () => {
   }, [isMobile]);
 
   useEffect(() => {
-    if (isMobile) return; // Don't set up cursor events on mobile
+    if (isMobile) return;
+
+    const cursor = cursorRef.current;
+    if (!cursor) return;
+
+    let isVisible = false;
 
     const updatePosition = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-      if (!isVisible) setIsVisible(true);
+      if (!isVisible) {
+        cursor.style.opacity = '1';
+        isVisible = true;
+      }
+      // Use transform for better performance
+      cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate3d(-50%, -50%, 0)`;
     };
 
     const updateHoverState = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      const isHoverable = target.closest('a, button, [data-hover]');
-      setIsHovering(!!isHoverable);
+      // Expanded list of interactive elements
+      const isHoverable = target.closest('a, button, [data-hover], input, textarea, label, [role="button"], .radio-group-item');
+
+      const icon = cursor.querySelector('.inner-cursor-icon');
+
+      if (isHoverable) {
+        cursor.classList.add('hover');
+        if (icon) icon.classList.remove('hidden');
+      } else {
+        cursor.classList.remove('hover');
+        if (icon) icon.classList.add('hidden');
+      }
     };
 
     const handleMouseLeave = () => {
-      setIsVisible(false);
+      cursor.style.opacity = '0';
+      isVisible = false;
     };
 
-    document.addEventListener('mousemove', updatePosition);
-    document.addEventListener('mousemove', updateHoverState);
+    const handleMouseEnter = () => {
+      cursor.style.opacity = '1';
+      isVisible = true;
+    };
+
+    document.addEventListener('mousemove', updatePosition, { passive: true });
+    document.addEventListener('mousemove', updateHoverState, { passive: true });
     document.addEventListener('mouseleave', handleMouseLeave);
+    document.addEventListener('mouseenter', handleMouseEnter);
 
     return () => {
       document.removeEventListener('mousemove', updatePosition);
       document.removeEventListener('mousemove', updateHoverState);
       document.removeEventListener('mouseleave', handleMouseLeave);
-      document.body.style.cursor = 'auto'; // Ensure cursor is restored
+      document.removeEventListener('mouseenter', handleMouseEnter);
+      document.body.style.cursor = 'auto';
     };
-  }, [isVisible, isMobile]); // Add isMobile to dependencies
+  }, [isMobile]);
 
-  // Don't render anything on mobile
   if (isMobile) return null;
 
   return (
     <div
-      className={`custom-cursor ${isHovering ? 'hover' : ''} ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+      ref={cursorRef}
+      className="custom-cursor opacity-0 fixed pointer-events-none z-[9999]"
       style={{
-        left: `${position.x}px`,
-        top: `${position.y}px`,
+        left: 0,
+        top: 0,
       }}
     >
-      {isHovering && (
+      <div className="inner-cursor-icon hidden transition-opacity duration-200">
         <svg
           width="16"
           height="16"
@@ -89,7 +113,7 @@ const CustomCursor = () => {
             fill="#C6FF4E"
           />
         </svg>
-      )}
+      </div>
     </div>
   );
 };
