@@ -8,7 +8,7 @@ import ButtonPrimary from '../ButtonPrimary';
 const tickets = [
   {
     name: "Invite-Only Ticket",
-    price: "£275",
+    price: "£625",
     priceSubtitle: "Final price confirmed on invitation.",
     features: [
       "Full workshop access",

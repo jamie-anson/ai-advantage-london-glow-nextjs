@@ -1,7 +1,6 @@
 import { cn } from '@/lib/utils';
-import { useEffect, useState, useRef, memo } from 'react';
+import { useState, memo } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 
 // Moved outside component to prevent recreation on each render
 const showcaseItems = [
@@ -166,20 +165,12 @@ const ShowcaseItem = memo(({
 ShowcaseItem.displayName = 'ShowcaseItem';
 
 const SessionHeroSection = () => {
-    const [isInView, setIsInView] = useState(true);
+    // Hero is always in view from start
+    const isInView = true;
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-    const sectionRef = useRef<HTMLElement>(null);
-
-    useEffect(() => {
-        // We still want the observer if we want to trigger *re-animations* or analytics, 
-        // but for the Hero, we should default to true so it shows up immediately.
-        // Actually, let's keep the logic simple: Default true. 
-        // The observer is redundant if we start true, but maybe we want to keep it if we want to support "not in view yet" logic? 
-        // No, Hero is always in view.
-    }, []);
 
     return (
-        <section ref={sectionRef} className="min-h-screen relative flex flex-col items-center text-[#F0F0F0] overflow-hidden pt-32 md:pt-[172px] pb-20">
+        <section className="min-h-screen relative flex flex-col items-center text-[#F0F0F0] overflow-hidden pt-32 md:pt-[172px] pb-20">
             {/* Subtle background glow */}
             <div className="absolute top-[-20%] right-[-10%] w-[60%] h-[60%] bg-blue-900/20 blur-[150px] rounded-full mix-blend-screen animate-pulse-slow"></div>
             <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-brand-green/10 blur-[150px] rounded-full mix-blend-screen animate-pulse-slow delay-1000"></div>
@@ -187,20 +178,14 @@ const SessionHeroSection = () => {
             <div className="container mx-auto px-6 relative z-10 text-center mb-[136px]">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-start max-w-6xl mx-auto mt-12">
                     {/* Left Column - Title & Image */}
-                    <motion.div
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 1.2, ease: "easeOut" }}
-                        className="text-left flex flex-col items-start"
-                    >
-
-
+                    <div className="text-left flex flex-col items-start animate-fade-in-up">
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold leading-tight tracking-tight text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.15)]">
                             <span>See how Jamie built </span>
                             <span className="text-brand-green/90 italic">what normally takes a team</span>
                         </h1>
 
                         <div className="flex items-center gap-3 mt-8">
-                            <div className="w-10 h-10 rounded-full border border-brand-green/30 overflow-hidden relative shadow-[0_0_10px_rgba(198,255,78,0.2)]">
+                            <div className="w-10 h-10 rounded-full border border-brand-green/30 overflow-hidden relative shadow-[0_0_10px_rgba(198,255,255,0.2)]">
                                 <Image
                                     src="/images/about-jamie-640x640.jpeg"
                                     fill
@@ -212,14 +197,10 @@ const SessionHeroSection = () => {
                                 Project Beacon // One-Day AI Course // London
                             </span>
                         </div>
-                    </motion.div>
+                    </div>
 
                     {/* Right Column - Content */}
-                    <motion.div
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-                        className="text-left space-y-8 md:mt-32"
-                    >
+                    <div className="text-left space-y-8 md:mt-32 animate-fade-in-up animate-delay-200">
 
                         <p className="text-3xl md:text-4xl font-normal text-white font-sans tracking-tight">
                             And how you can leverage AI to do the same.
@@ -240,7 +221,7 @@ const SessionHeroSection = () => {
                                 <span className="text-brand-green">•</span> Operate at team scale
                             </li>
                         </ul>
-                    </motion.div>
+                    </div>
                 </div>
             </div>
 

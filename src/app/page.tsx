@@ -8,7 +8,7 @@ const workshopData = {
   endDate: "2025-09-20",
   startTime: "09:00",
   endTime: "17:00",
-  price: "250",
+  price: "625",
   priceCurrency: "GBP",
   description: "An exclusive invite-only workshop to upgrade how professionals work with AI—with clarity, tools, and style.",
   image: "https://aiworkshop.london/images/ai-advantage-1.jpg",

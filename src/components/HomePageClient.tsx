@@ -13,7 +13,8 @@ import ShowcaseSection from '@/components/sections/ShowcaseSection';
 import WhoItsForSection from '@/components/sections/WhoItsForSection';
 import ExperienceSection from '@/components/sections/ExperienceSection';
 import AboutJamieSection from '@/components/sections/AboutJamieSection';
-import WorkshopExperienceSection from '@/components/sections/WorkshopExperienceSection';
+import SessionApproachSection from '@/components/sections/SessionApproachSection';
+import SessionAgendaSection from '@/components/sections/SessionAgendaSection';
 import TicketsSection from '@/components/sections/TicketsSection';
 import FinalCTASection from '@/components/sections/FinalCTASection';
 
@@ -29,7 +30,8 @@ export default function HomePageClient() {
         <WhoItsForSection />
         <ExperienceSection />
         <AboutJamieSection />
-        <WorkshopExperienceSection />
+        <SessionApproachSection />
+        <SessionAgendaSection />
         <TicketsSection />
         <FinalCTASection />
         <Footer />
