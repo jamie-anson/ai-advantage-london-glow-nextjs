@@ -18,6 +18,7 @@ const SessionApproachSection = () => {
                     <div className="grid md:grid-cols-2 gap-16 items-center">
                         {/* Left Column: What it isn't */}
                         <motion.div
+                            initial={{ opacity: 1, x: 0 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.8 }}
@@ -46,6 +47,7 @@ const SessionApproachSection = () => {
 
                         {/* Right Column: What it is */}
                         <motion.div
+                            initial={{ opacity: 1, x: 0 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.8, delay: 0.2 }}
@@ -120,6 +122,7 @@ const SessionApproachSection = () => {
                 {/* --- Project Beacon Intro Section (Moved Here) --- */}
                 <div className="container mx-auto max-w-4xl mb-24">
                     <motion.div
+                        initial={{ opacity: 1, y: 0 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8 }}

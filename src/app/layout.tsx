@@ -25,6 +25,19 @@ export default function RootLayout({
         <Providers>
           <SiteHeader />
           {children}
+          <noscript>
+            <style>{`
+              /* Force all content to be visible when JS is disabled */
+              html, body, div, section, article, header, footer, main, 
+              h1, h2, h3, h4, h5, h6, p, span, a, button, li, ul, ol, img, svg {
+                opacity: 1 !important;
+                visibility: visible !important;
+                transform: none !important;
+                clip-path: none !important;
+                transition: none !important;
+              }
+            `}</style>
+          </noscript>
         </Providers>
 
         {/* Google tag (gtag.js) */}

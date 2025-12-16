@@ -17,18 +17,26 @@ const CustomCursor = () => {
 
     // Initial check
     checkIfMobile();
-    
+
     // Add resize listener to update on orientation changes
     window.addEventListener('resize', checkIfMobile);
-    
+
     return () => {
       window.removeEventListener('resize', checkIfMobile);
     };
   }, []);
 
   useEffect(() => {
+    if (isMobile) return;
+    document.body.style.cursor = 'none';
+    return () => {
+      document.body.style.cursor = 'auto';
+    };
+  }, [isMobile]);
+
+  useEffect(() => {
     if (isMobile) return; // Don't set up cursor events on mobile
-    
+
     const updatePosition = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY });
       if (!isVisible) setIsVisible(true);
@@ -47,11 +55,12 @@ const CustomCursor = () => {
     document.addEventListener('mousemove', updatePosition);
     document.addEventListener('mousemove', updateHoverState);
     document.addEventListener('mouseleave', handleMouseLeave);
-    
+
     return () => {
       document.removeEventListener('mousemove', updatePosition);
       document.removeEventListener('mousemove', updateHoverState);
       document.removeEventListener('mouseleave', handleMouseLeave);
+      document.body.style.cursor = 'auto'; // Ensure cursor is restored
     };
   }, [isVisible, isMobile]); // Add isMobile to dependencies
 
@@ -67,17 +76,17 @@ const CustomCursor = () => {
       }}
     >
       {isHovering && (
-        <svg 
-          width="16" 
-          height="16" 
-          viewBox="0 0 16 16" 
-          fill="none" 
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
         >
-          <path 
-            d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z" 
-            fill="#C6FF4E" 
+          <path
+            d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z"
+            fill="#C6FF4E"
           />
         </svg>
       )}

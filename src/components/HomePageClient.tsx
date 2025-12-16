@@ -1,6 +1,6 @@
 "use client";
 
-import dynamic from 'next/dynamic';
+
 
 // Import non-lazy components
 import CustomCursor from '@/components/CustomCursor';
@@ -8,16 +8,14 @@ import HeroSection from '@/components/sections/HeroSection';
 import AnimatedBackground from '@/components/AnimatedBackground';
 import Footer from '@/components/Footer';
 
-// --- Lazy Load Sections ---
-const SectionLoader = () => <div className="h-96 w-full" />;
-
-const ShowcaseSection = dynamic(() => import('@/components/sections/ShowcaseSection'), { loading: () => <SectionLoader /> });
-const WhoItsForSection = dynamic(() => import('@/components/sections/WhoItsForSection'), { loading: () => <SectionLoader /> });
-const ExperienceSection = dynamic(() => import('@/components/sections/ExperienceSection'), { loading: () => <SectionLoader /> });
-const AboutJamieSection = dynamic(() => import('@/components/sections/AboutJamieSection'), { loading: () => <SectionLoader /> });
-const WorkshopExperienceSection = dynamic(() => import('@/components/sections/WorkshopExperienceSection'), { loading: () => <SectionLoader /> });
-const TicketsSection = dynamic(() => import('@/components/sections/TicketsSection'), { loading: () => <SectionLoader /> });
-const FinalCTASection = dynamic(() => import('@/components/sections/FinalCTASection'), { loading: () => <SectionLoader /> });
+// Static imports for better visibility without JS
+import ShowcaseSection from '@/components/sections/ShowcaseSection';
+import WhoItsForSection from '@/components/sections/WhoItsForSection';
+import ExperienceSection from '@/components/sections/ExperienceSection';
+import AboutJamieSection from '@/components/sections/AboutJamieSection';
+import WorkshopExperienceSection from '@/components/sections/WorkshopExperienceSection';
+import TicketsSection from '@/components/sections/TicketsSection';
+import FinalCTASection from '@/components/sections/FinalCTASection';
 
 export default function HomePageClient() {
   return (

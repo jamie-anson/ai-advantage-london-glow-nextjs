@@ -1,6 +1,6 @@
 "use client";
 
-import dynamic from 'next/dynamic';
+
 
 // Import non-lazy components
 import CustomCursor from '@/components/CustomCursor';
@@ -8,15 +8,13 @@ import AnimatedBackground from '@/components/AnimatedBackground';
 import Footer from '@/components/Footer';
 import SessionHeroSection from '@/components/sections/SessionHeroSection';
 
-// --- Lazy Load Sections ---
-const SectionLoader = () => <div className="h-96 w-full" />;
-
-const SessionApproachSection = dynamic(() => import('@/components/sections/SessionApproachSection'), { loading: () => <SectionLoader /> });
-const SessionAgendaSection = dynamic(() => import('@/components/sections/SessionAgendaSection'), { loading: () => <SectionLoader /> });
-const SessionAudienceSection = dynamic(() => import('@/components/sections/SessionAudienceSection'), { loading: () => <SectionLoader /> });
-const SessionCTASection = dynamic(() => import('@/components/sections/SessionCTASection'), { loading: () => <SectionLoader /> });
-const AboutJamieSection = dynamic(() => import('@/components/sections/AboutJamieSection'), { loading: () => <SectionLoader /> });
-const TicketsSection = dynamic(() => import('@/components/sections/TicketsSection'), { loading: () => <SectionLoader /> });
+// Static imports for better visibility without JS
+import SessionApproachSection from '@/components/sections/SessionApproachSection';
+import SessionAgendaSection from '@/components/sections/SessionAgendaSection';
+import SessionAudienceSection from '@/components/sections/SessionAudienceSection';
+import SessionCTASection from '@/components/sections/SessionCTASection';
+import AboutJamieSection from '@/components/sections/AboutJamieSection';
+import TicketsSection from '@/components/sections/TicketsSection';
 
 export default function SessionPageClient() {
     return (

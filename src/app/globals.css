@@ -47,18 +47,18 @@
   * {
     @apply border-border;
   }
-  
+
   html {
     @apply scroll-smooth;
   }
 
   body {
     @apply bg-background text-foreground font-sans;
-    cursor: none;
   }
 }
 
 @layer components {
+
   /* Custom cursor */
   .custom-cursor {
     width: 40px;
@@ -73,7 +73,7 @@
     transform: translate(-50%, -50%);
     transition: transform 0.15s ease-out, width 0.2s ease, height 0.2s ease;
   }
-  
+
   .custom-cursor.hover {
     width: 60px;
     height: 60px;
@@ -113,9 +113,22 @@
   .glass-card {
     @apply bg-card/60 backdrop-blur-sm border border-white/10 rounded-lg;
   }
-  
+
   /* Content section card */
   .content-card {
     @apply bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg shadow-lg;
   }
+}
+
+/* Fallback background for No-JS environments (agents/bots) */
+noscript .bg-background::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(122, 35, 168, 0.4) 0%, transparent 70%),
+    radial-gradient(circle at 80% 80%, rgba(76, 20, 110, 0.4) 0%, transparent 70%),
+    radial-gradient(circle at 20% 80%, rgba(198, 255, 78, 0.1) 0%, transparent 70%);
+  background-color: #050505;
 }
