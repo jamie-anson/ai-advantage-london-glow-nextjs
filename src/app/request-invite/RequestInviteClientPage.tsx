@@ -100,7 +100,7 @@ export default function RequestInviteClientPage() {
       <AnimatedBackground />
       <div className="relative z-10">
         <React.Fragment>
-          <div className="container mx-auto px-6 py-24 max-w-4xl">
+          <div className="container mx-auto px-6 pt-32 pb-24 md:pt-40 max-w-4xl">
             <div className="text-center mb-16">
               <h1 className="heading-lg mb-4">Request an Invite</h1>
               <p className="body-lg text-white/80 max-w-2xl mx-auto">
@@ -135,8 +135,8 @@ export default function RequestInviteClientPage() {
                               <Label
                                 htmlFor={option.id}
                                 className={`flex items-start space-x-3 space-y-0 w-full p-4 border-2 rounded-lg cursor-pointer transition-all hover:bg-white/5 ${field.value === option.id
-                                    ? "border-brand-green bg-brand-green/10"
-                                    : "border-white/20"
+                                  ? "border-brand-green bg-brand-green/10"
+                                  : "border-white/20"
                                   }`}
                               >
                                 <div className={`mt-1 w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ${field.value === option.id ? "border-brand-green" : "border-white/50"
@@ -220,8 +220,8 @@ export default function RequestInviteClientPage() {
                             <Label
                               htmlFor="immediately"
                               className={`flex items-start space-x-3 space-y-0 w-full p-4 border-2 rounded-lg cursor-pointer transition-all hover:bg-white/5 ${field.value === "immediately"
-                                  ? "border-brand-green bg-brand-green/10"
-                                  : "border-white/20"
+                                ? "border-brand-green bg-brand-green/10"
+                                : "border-white/20"
                                 }`}
                             >
                               <div className={`mt-1 w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ${field.value === "immediately" ? "border-brand-green" : "border-white/50"
@@ -246,8 +246,8 @@ export default function RequestInviteClientPage() {
                               <Label
                                 htmlFor="approval"
                                 className={`flex items-start space-x-3 space-y-0 w-full p-4 border-2 rounded-lg cursor-pointer transition-all hover:bg-white/5 ${field.value === "approval"
-                                    ? "border-brand-green bg-brand-green/10"
-                                    : "border-white/20"
+                                  ? "border-brand-green bg-brand-green/10"
+                                  : "border-white/20"
                                   }`}
                               >
                                 <div className={`mt-1 w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ${field.value === "approval" ? "border-brand-green" : "border-white/50"
@@ -263,7 +263,7 @@ export default function RequestInviteClientPage() {
                             {/* Nested content for "approval" explanation/link */}
                             <div className="ml-8 text-white/70 text-sm pl-4">
                               <a
-                                href="/assets/Approval-Cheat-Sheet.pdf"
+                                href="/downloads/ai_workshop_london_pitch.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center hover:text-brand-green transition-colors"
@@ -327,7 +327,7 @@ export default function RequestInviteClientPage() {
 
                 <div className="pt-6 flex justify-center">
                   <ButtonPrimary className="px-12 py-4 text-lg" type="submit" data-testid="submit-button">
-                    Reserve My Spot & Get the Guide
+                    Confirm my interest
                   </ButtonPrimary>
                 </div>
               </form>
