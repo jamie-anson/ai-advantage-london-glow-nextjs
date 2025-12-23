@@ -207,7 +207,7 @@ const SessionHeroSection = () => {
                         </p>
 
                         <p className="text-white/90 leading-relaxed text-lg">
-                            A one-day breakdown of Project Beacon — the open-source platform built solo and valued at £100k+. Learn the exact workflow to build ambitious projects without a large team.
+                            A one-day breakdown of Project Beacon, the open-source platform built solo and valued at £200k+. Learn the exact workflow to build ambitious projects without a large team.
                         </p>
 
                         <ul className="space-y-3 font-mono text-white/80 uppercase tracking-wider text-sm">

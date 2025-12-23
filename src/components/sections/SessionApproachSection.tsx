@@ -92,7 +92,7 @@ const SessionApproachSection = () => {
                     <motion.h2
                         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6"
+                        className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-white/90 mb-4 tracking-tight"
                     >
                         The approach: <span className="italic text-brand-green">lead by example</span>
                     </motion.h2>
@@ -107,7 +107,7 @@ const SessionApproachSection = () => {
                         transition={{ duration: 0.8 }}
                         className="text-center"
                     >
-                        <h2 className="text-sm font-mono text-brand-green uppercase tracking-widest mb-12">Case Study</h2>
+                        <h2 className="text-sm font-mono text-brand-green uppercase tracking-widest mb-4">Case Study</h2>
                         <h3 className="text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-white mb-12 leading-tight">
                             Project Beacon
                         </h3>
@@ -117,7 +117,7 @@ const SessionApproachSection = () => {
                             <div className="absolute -top-24 -right-24 w-64 h-64 bg-brand-green/10 blur-[80px] rounded-full group-hover:bg-brand-green/20 transition-all duration-700"></div>
 
                             <p className="text-xl md:text-2xl text-white font-light leading-relaxed mb-8">
-                                <strong className="text-white font-medium">Project Beacon</strong> is an open-source initiative designed to detect and expose AI corruption — where models are influenced, censored, or distorted without users knowing.
+                                <strong className="text-white font-medium">Project Beacon</strong> is an open-source initiative designed to detect and expose AI corruption: where models are influenced, censored, or distorted without users knowing.
                             </p>
 
                             <div className="space-y-6 text-lg text-white/90 font-light">
@@ -128,7 +128,7 @@ const SessionApproachSection = () => {
                                     Instead, it was designed, built, and scoped by <span className="text-white font-normal border-b border-brand-green/40">one person</span>, using AI as leverage.
                                 </p>
                                 <p>
-                                    In this course, Project Beacon is unpacked end-to-end — not as a demo, but as a real, ambitious project — so you can see how it was actually built, and apply the same thinking to your own work.
+                                    In this course, Project Beacon is unpacked end-to-end (not as a demo, but as a real, ambitious project) so you can see how it was actually built and apply the same thinking to your own work.
                                 </p>
                             </div>
 
@@ -136,7 +136,7 @@ const SessionApproachSection = () => {
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                                     {/* Main Valuation Stat */}
                                     <div className="col-span-1 border-b md:border-b-0 md:border-r border-white/10 pb-8 md:pb-0 md:pr-8">
-                                        <div className="text-5xl font-serif text-brand-green mb-2">£100k+</div>
+                                        <div className="text-5xl font-serif text-brand-green mb-2">£200k+</div>
                                         <div className="text-xs font-mono text-white/70 uppercase tracking-widest">Valuation after 3 months</div>
                                     </div>
 

@@ -14,7 +14,6 @@ import SessionAgendaSection from '@/components/sections/SessionAgendaSection';
 import SessionAudienceSection from '@/components/sections/SessionAudienceSection';
 import SessionCTASection from '@/components/sections/SessionCTASection';
 import AboutJamieSection from '@/components/sections/AboutJamieSection';
-import TicketsSection from '@/components/sections/TicketsSection';
 
 export default function SessionPageClient() {
     return (
@@ -28,7 +27,6 @@ export default function SessionPageClient() {
                 <AboutJamieSection />
                 <SessionAgendaSection />
                 <SessionAudienceSection />
-                <TicketsSection />
                 <SessionCTASection />
                 <Footer />
             </div>

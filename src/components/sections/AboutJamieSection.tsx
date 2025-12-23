@@ -73,7 +73,7 @@ const AboutJamieSection = () => {
             )}>
               <h3 className="text-4xl font-serif text-white mb-2">Jamie Anson</h3>
               <p className="text-brand-green text-lg mb-8">AI Researcher & Startup Founder</p>
-              <p className="text-gray-300 italic">Building a real, scalable business — entirely solo.</p>
+              <p className="text-gray-300 italic">Building a real, scalable business, entirely solo.</p>
             </div>
           </div>
 
@@ -83,7 +83,7 @@ const AboutJamieSection = () => {
             isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}>
             <p>
-              Jamie is living the One-Person Unicorn life: building a real, scalable business — entirely solo.
+              Jamie is living the One-Person Unicorn life: building a real, scalable business, entirely solo.
             </p>
 
             <p>
@@ -91,7 +91,7 @@ const AboutJamieSection = () => {
             </p>
 
             <p>
-              Right now, he’s designing, building, and launching a suite of events apps — moving fast, shipping often, and proving what’s possible when you stop waiting for permission.
+              Right now, he’s designing, building, and launching Project Beacon - moving fast, shipping often, and proving what’s possible when you stop waiting for permission.
             </p>
 
             <p>
@@ -99,7 +99,7 @@ const AboutJamieSection = () => {
             </p>
 
             <p>
-              <strong>This workshop is your way in.</strong> If you’ve got ideas, ambition, and the courage to try, Jamie will show you how to turn that into momentum — using the same tools and methods powering his own startup today.
+              <strong>This workshop is your way in.</strong> If you’ve got ideas, ambition, and the courage to try, Jamie will show you how to turn that into momentum, using the same tools and methods powering his own startup today.
             </p>
 
             <p>

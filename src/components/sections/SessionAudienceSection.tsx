@@ -39,7 +39,7 @@ const SessionAudienceSection = () => {
                                 "Executives exploring AI beyond surface-level use",
                                 "Founders building without large teams",
                                 "Senior ICs who want leverage, not more meetings",
-                                "Anyone who feels capable of more — but constrained by the old rules"
+                                "Anyone who feels capable of more, but constrained by the old rules"
                             ].map((item, i) => (
                                 <li key={i} className="flex items-start gap-4">
                                     <span className="w-2 h-2 rounded-full bg-brand-green mt-2.5 shrink-0"></span>
