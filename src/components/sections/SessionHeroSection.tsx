@@ -206,19 +206,19 @@ const SessionHeroSection = () => {
                             And how you can leverage AI to do the same.
                         </p>
 
-                        <p className="text-white/60 leading-relaxed text-lg">
+                        <p className="text-white/90 leading-relaxed text-lg">
                             A one-day breakdown of Project Beacon — the open-source platform built solo and valued at £100k+. Learn the exact workflow to build ambitious projects without a large team.
                         </p>
 
-                        <ul className="space-y-3 font-mono text-white/50 uppercase tracking-wider text-sm">
+                        <ul className="space-y-3 font-mono text-white/80 uppercase tracking-wider text-sm">
                             <li className="flex items-center gap-3">
-                                <span className="text-brand-green">•</span> Save weeks of frustration
+                                <span className="text-brand-green font-bold">•</span> Save weeks of frustration
                             </li>
                             <li className="flex items-center gap-3">
-                                <span className="text-brand-green">•</span> Build more ambitiously
+                                <span className="text-brand-green font-bold">•</span> Build more ambitiously
                             </li>
                             <li className="flex items-center gap-3">
-                                <span className="text-brand-green">•</span> Operate at team scale
+                                <span className="text-brand-green font-bold">•</span> Operate at team scale
                             </li>
                         </ul>
                     </div>
