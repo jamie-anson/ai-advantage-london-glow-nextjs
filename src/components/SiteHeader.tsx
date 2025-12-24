@@ -23,8 +23,6 @@ const SiteHeader = () => {
 
     const navItems = [
         { name: 'Home', path: '/' },
-        { name: 'One Day Course', path: '/one-day-course' },
-        { name: 'Session', path: '/session' },
         { name: 'Request Invite', path: '/request-invite' },
     ];
 

@@ -21,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
     },
     {
-      url: `${baseUrl}/session`,
+      url: `${baseUrl}/original`,
       lastModified: new Date(),
     },
     {

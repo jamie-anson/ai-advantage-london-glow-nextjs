@@ -75,8 +75,8 @@ const SessionApproachSection = () => {
                                     "How to avoid weeks of frustration and false starts",
                                     "How to ship something that feels legitimate, not hacky"
                                 ].map((item, i) => (
-                                    <li key={i} className="flex items-start gap-4">
-                                        <span className="text-brand-green mt-1 font-bold">→</span>
+                                    <li key={i} className="flex items-center gap-4">
+                                        <span className="text-brand-green font-bold">→</span>
                                         <p className="text-white leading-relaxed font-light">{item}</p>
                                     </li>
                                 ))}
@@ -116,9 +116,19 @@ const SessionApproachSection = () => {
                             {/* Gradient glow effect */}
                             <div className="absolute -top-24 -right-24 w-64 h-64 bg-brand-green/10 blur-[80px] rounded-full group-hover:bg-brand-green/20 transition-all duration-700"></div>
 
-                            <p className="text-xl md:text-2xl text-white font-light leading-relaxed mb-8">
+                            <p className="text-xl md:text-2xl text-white font-light leading-relaxed mb-4">
                                 <strong className="text-white font-medium">Project Beacon</strong> is an open-source initiative designed to detect and expose AI corruption: where models are influenced, censored, or distorted without users knowing.
                             </p>
+
+                            <a
+                                href="https://projectbeacon.netlify.app/portal"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 text-brand-green hover:text-brand-green/80 transition-colors duration-300 group/link mb-8 text-sm font-mono uppercase tracking-widest"
+                            >
+                                Visit Live Project
+                                <span className="group-hover/link:translate-x-1 transition-transform duration-300">→</span>
+                            </a>
 
                             <div className="space-y-6 text-lg text-white/90 font-light">
                                 <p>
