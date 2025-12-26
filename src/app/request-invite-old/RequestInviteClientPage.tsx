@@ -55,7 +55,7 @@ export default function RequestInviteClientPage() {
 
   const onSubmit = async (data: FormValues) => {
     console.log("Form submitted:", data);
-    
+
     try {
       const response = await fetch('https://hook.eu2.make.com/rkaf4c5ny755iu1znhu4f7ofn6a27ib4', {
         method: 'POST',
@@ -64,22 +64,15 @@ export default function RequestInviteClientPage() {
         },
         body: JSON.stringify(data),
       });
-      
+
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-      
+
       console.log('Webhook response:', await response.text());
 
       router.push(`/thank-you?name=${encodeURIComponent(data.name)}`);
-      
-      setTimeout(() => {
-        toast({
-          title: "✈️ Your guide is on its way",
-          description: "It will be with you in 15 mins",
-        });
-      }, 2000);
-      
+
     } catch (error) {
       console.error('Error submitting form:', error);
       toast({
@@ -160,10 +153,10 @@ export default function RequestInviteClientPage() {
                                       return checked
                                         ? field.onChange([...(field.value || []), item.id])
                                         : field.onChange(
-                                            (field.value || []).filter(
-                                              (value) => value !== item.id
-                                            )
-                                          );
+                                          (field.value || []).filter(
+                                            (value) => value !== item.id
+                                          )
+                                        );
                                     }}
                                   />
                                 </FormControl>
@@ -254,10 +247,10 @@ export default function RequestInviteClientPage() {
                                       return checked
                                         ? field.onChange([...(field.value || []), item.id])
                                         : field.onChange(
-                                            (field.value || []).filter(
-                                              (value) => value !== item.id
-                                            )
-                                          );
+                                          (field.value || []).filter(
+                                            (value) => value !== item.id
+                                          )
+                                        );
                                     }}
                                   />
                                 </FormControl>
@@ -311,16 +304,16 @@ export default function RequestInviteClientPage() {
                       <FormLabel className="text-xl mb-4 block">Anything else we should know?</FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="Tell us what would make this workshop unmissable for you..." 
+                          placeholder="Tell us what would make this workshop unmissable for you..."
                           className="bg-black/70 border-white/30 border-2 min-h-[120px] text-white placeholder:text-white/60 p-4 focus:border-brand-green focus:ring-brand-green/50"
-                          {...field} 
+                          {...field}
                         />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-                
+
                 {/* Name and Email */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <FormField
@@ -332,10 +325,10 @@ export default function RequestInviteClientPage() {
                           Name
                         </FormLabel>
                         <FormControl>
-                          <Input 
-                            placeholder="Your full name" 
-                            className="bg-black/70 border-white/30 border-2 text-white placeholder:text-white/60 p-3 focus:border-brand-green focus:ring-brand-green/50" 
-                            {...field} 
+                          <Input
+                            placeholder="Your full name"
+                            className="bg-black/70 border-white/30 border-2 text-white placeholder:text-white/60 p-3 focus:border-brand-green focus:ring-brand-green/50"
+                            {...field}
                           />
                         </FormControl>
                         <FormMessage />
@@ -351,11 +344,11 @@ export default function RequestInviteClientPage() {
                           Best Email Address
                         </FormLabel>
                         <FormControl>
-                          <Input 
-                            type="email" 
-                            placeholder="you@example.com" 
-                            className="bg-black/70 border-white/30 border-2 text-white placeholder:text-white/60 p-3 focus:border-brand-green focus:ring-brand-green/50" 
-                            {...field} 
+                          <Input
+                            type="email"
+                            placeholder="you@example.com"
+                            className="bg-black/70 border-white/30 border-2 text-white placeholder:text-white/60 p-3 focus:border-brand-green focus:ring-brand-green/50"
+                            {...field}
                           />
                         </FormControl>
                         <FormMessage />
@@ -363,7 +356,7 @@ export default function RequestInviteClientPage() {
                     )}
                   />
                 </div>
-                
+
                 <div className="pt-6 flex justify-center">
                   <ButtonPrimary className="px-12 py-4 text-lg" type="submit" data-testid="submit-button">
                     Reserve My Spot & Get the Guide

@@ -29,13 +29,18 @@ export default function ThankYouClient() {
               <h1 className="heading-md mb-8">
                 Thank you, <span className="text-brand-green">{userName || 'friend'}</span>.
               </h1>
-              <p className="text-xl mb-12">
-                We&apos;ve received your request and will be in touch with next steps.
-              </p>
-              <p className="text-xl mb-12">
-                Your free guide — &quot;10 Quick Lessons – Spark Your AI Journey&quot; — is on its way to your inbox.
-              </p>
-              <div className="flex justify-center">
+              <div className="space-y-6 text-white/80">
+                <p className="text-xl leading-relaxed">
+                  We&apos;ve received your request and will be in touch once we have found the best fitting group.
+                </p>
+                <p className="text-xl leading-relaxed">
+                  Jamie personally reviews every invitation to ensure the right mix of professionals for each session—you&apos;ll hear from him directly on either a <span className="text-white font-medium">Wednesday</span> or <span className="text-white font-medium">Sunday</span>.
+                </p>
+                <p className="text-lg text-white/50 pt-4">
+                  You can change your mind and unsubscribe anytime.
+                </p>
+              </div>
+              <div className="flex justify-center mt-12">
                 <ButtonPrimary onClick={() => router.push("/")}>
                   Return to Homepage
                 </ButtonPrimary>

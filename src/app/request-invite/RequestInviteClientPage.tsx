@@ -70,13 +70,6 @@ export default function RequestInviteClientPage() {
 
       router.push(`/thank-you?name=${encodeURIComponent(data.name)}`);
 
-      setTimeout(() => {
-        toast({
-          title: "✈️ Your guide is on its way",
-          description: "It will be with you in 15 mins",
-        });
-      }, 2000);
-
     } catch (error) {
       console.error('Error submitting form:', error);
       toast({
