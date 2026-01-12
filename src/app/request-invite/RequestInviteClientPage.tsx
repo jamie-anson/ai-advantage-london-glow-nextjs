@@ -4,7 +4,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
 
 // Components
@@ -16,7 +17,6 @@ import ButtonPrimary from "@/components/ButtonPrimary";
 // UI Components
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
@@ -30,12 +30,23 @@ const formSchema = z.object({
   confirmationSpeed: z.string().min(1, "Please select an option"),
   name: z.string().min(1, "Please enter your name"),
   email: z.string().email("Please enter a valid email address"),
+  source: z.string().optional(),
 });
 
 type FormValues = z.infer<typeof formSchema>;
 
 export default function RequestInviteClientPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-black" />}>
+      <RequestInviteForm />
+    </Suspense>
+  );
+}
+
+function RequestInviteForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const source = searchParams?.get('source') || 'direct';
   const { toast } = useToast();
 
   const form = useForm<FormValues>({
@@ -47,6 +58,7 @@ export default function RequestInviteClientPage() {
       confirmationSpeed: "",
       name: "",
       email: "",
+      source: source,
     },
   });
 

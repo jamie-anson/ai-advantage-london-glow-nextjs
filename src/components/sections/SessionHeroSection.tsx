@@ -68,7 +68,7 @@ const ShowcaseItem = memo(({
                 widthClass.desktop
             )}
             style={{
-                transitionDelay: `${200 + (index * 100)}ms`,
+                transitionDelay: `${1100 + (index * 100)}ms`,
                 // Material Design timing function for all transitions
                 transition: isInView
                     ? `width 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease`
@@ -96,6 +96,8 @@ const ShowcaseItem = memo(({
                                 src={item.imageSrc}
                                 alt={item.title}
                                 fill
+                                priority={index === 0}
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 className="object-cover w-full h-full"
                                 style={{
                                     willChange: 'transform',
@@ -170,96 +172,129 @@ const SessionHeroSection = () => {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     return (
-        <section className="min-h-screen relative flex flex-col items-center text-[#F0F0F0] overflow-hidden pt-32 md:pt-[172px] pb-20">
+        <section className="min-h-screen relative flex flex-col items-center text-[#F0F0F0] overflow-hidden pt-20 md:pt-24 pb-20">
             {/* Subtle background glow */}
             <div className="absolute top-[-20%] right-[-10%] w-[60%] h-[60%] bg-blue-900/20 blur-[150px] rounded-full mix-blend-screen animate-pulse-slow"></div>
             <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-brand-green/10 blur-[150px] rounded-full mix-blend-screen animate-pulse-slow delay-1000"></div>
 
-            <div className="container mx-auto px-6 relative z-10 text-center mb-[136px]">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-start max-w-6xl mx-auto mt-12">
-                    {/* Left Column - Title & Image */}
-                    <div className="text-left flex flex-col items-start animate-fade-in-up">
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold leading-tight tracking-tight text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.15)]">
-                            <span>See how Jamie built </span>
-                            <span className="text-brand-green/90 italic">what normally takes a team</span>
-                        </h1>
+            <div className="container mx-auto px-6 relative z-10 pt-32 pb-20">
+                <div className="max-w-7xl mx-auto">
+                    {/* 2-Column Hero Layout */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
 
-                        <div className="flex items-center gap-3 mt-8">
-                            <div className="w-10 h-10 rounded-full border border-brand-green/30 overflow-hidden relative shadow-[0_0_10px_rgba(198,255,255,0.2)]">
-                                <Image
-                                    src="/images/about-jamie-640x640.jpeg"
-                                    fill
-                                    alt="Jamie Anson"
-                                    className="object-cover"
-                                />
+                        {/* Left Column: The Problem */}
+                        <div className="space-y-8">
+                            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight tracking-tight text-white animate-fade-in-up">
+                                AI doesn’t <br />save time.
+                            </h1>
+                            <div className="h-[1px] w-24 bg-white/20 animate-fade-in animate-delay-500"></div>
+                        </div>
+
+                        {/* Right Column: The Solution */}
+                        <div className="space-y-10">
+                            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight tracking-tight text-brand-green animate-fade-in-up animate-delay-700">
+                                Engineering <br />with AI does.
+                            </h1>
+
+                            <div className="space-y-8 animate-fade-in-up animate-delay-1000">
+                                <div className="space-y-4">
+                                    <div className="max-w-xl">
+                                        <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
+                                            AI-Accelerated Engineering Workshop
+                                        </h3>
+                                        <p className="text-xl md:text-2xl font-light text-white/90 leading-relaxed">
+                                            A one-day professional programme for building faster without creating more work later.
+                                        </p>
+                                    </div>
+                                    <p className="text-sm md:text-base uppercase tracking-[0.2em] text-brand-green/70 font-medium italic">
+                                        Turn AI speed into lasting engineering progress.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <a
+                                        href="/request-invite"
+                                        className="inline-block bg-brand-green text-black px-10 py-5 rounded-full font-bold text-lg hover:bg-brand-green/90 transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(198,255,255,0.3)]"
+                                    >
+                                        Request Invite
+                                    </a>
+                                </div>
                             </div>
-                            <span className="font-mono text-brand-green/80 tracking-widest text-xs uppercase border border-brand-green/20 px-4 py-2 rounded-full bg-brand-green/5 backdrop-blur-sm">
-                                Project Beacon // One-Day AI Course // London
-                            </span>
                         </div>
                     </div>
 
-                    {/* Right Column - Content */}
-                    <div className="text-left space-y-8 md:mt-32 animate-fade-in-up animate-delay-200">
+                    {/* Showcase Cards Moved Here */}
+                    <div className="w-full relative z-10 mt-32">
+                        {/* Wrapper with isolation to create stacking context */}
+                        <div className="relative w-full overflow-hidden isolation-auto">
+                            {/* Flex container with gap between cards */}
+                            <div
+                                className="flex flex-col md:flex-row flex-nowrap gap-4"
+                                style={{
+                                    willChange: 'contents',
+                                    contain: 'layout style', // Contain layout changes
+                                }}
+                            >
+                                {showcaseItems.map((item, index) => (
+                                    <ShowcaseItem
+                                        key={`showcase-item-${index}`}
+                                        item={item}
+                                        index={index}
+                                        isInView={isInView}
+                                        hoveredIndex={hoveredIndex}
+                                        setHoveredIndex={setHoveredIndex}
+                                    />
+                                ))}
+                            </div>
+                        </div>
 
-                        <p className="text-3xl md:text-4xl font-normal text-white font-sans tracking-tight">
-                            And how you can leverage AI to do the same.
-                        </p>
+                        <div className={cn(
+                            "mt-6 text-center text-brand-gold/80 text-lg italic transition-all duration-300 delay-300",
+                            isInView ? "opacity-100" : "opacity-0"
+                        )}>
+                            Images from the W Hotel, Leicester Square, London
+                        </div>
+                    </div>
 
-                        <p className="text-white/90 leading-relaxed text-lg">
-                            A one-day breakdown of Project Beacon, the open-source platform built solo and valued at £200k+. Learn the exact workflow to build ambitious projects without a large team.
-                        </p>
+                    {/* Explanation Block & Audience - Now follows the gallery */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-32 pt-16 border-t border-white/10 animate-fade-in-up animate-delay-[1500ms]">
+                        <div className="space-y-6">
+                            <p className="text-xl md:text-2xl text-white font-light leading-relaxed">
+                                Most people experience AI as fast but fragile.<br />
+                                It produces output quickly, then creates weeks of cleanup.
+                            </p>
+                        </div>
 
-                        <ul className="space-y-3 font-mono text-white/80 uppercase tracking-wider text-sm">
-                            <li className="flex items-center gap-3">
-                                <span className="text-brand-green font-bold">•</span> Save weeks of frustration
-                            </li>
-                            <li className="flex items-center gap-3">
-                                <span className="text-brand-green font-bold">•</span> Build more ambitiously
-                            </li>
-                            <li className="flex items-center gap-3">
-                                <span className="text-brand-green font-bold">•</span> Operate at team scale
-                            </li>
-                        </ul>
+                        <div className="space-y-10">
+                            <p className="text-lg text-white leading-relaxed font-light">
+                                This workshop teaches the missing layer:<br />
+                                how to apply engineering discipline to AI so speed actually compounds instead of backfires.
+                            </p>
+
+                            {/* Audience Identification */}
+                            <div className="space-y-4">
+                                <p className="text-xs uppercase tracking-widest text-white/40 font-bold">Built for</p>
+                                <div className="flex flex-wrap gap-2">
+                                    {[
+                                        "Engineers",
+                                        "Vibe Coders → Engineers",
+                                        "Technical Founders",
+                                        "Product & Project Managers",
+                                        "Innovation Teams"
+                                    ].map((tag) => (
+                                        <span
+                                            key={tag}
+                                            className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm font-normal text-white/70 transition-colors hover:bg-white/10"
+                                        >
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            {/* Showcase Cards at Bottom */}
-            <div className="container mx-auto px-4 w-full relative z-10 mt-auto">
-                {/* Wrapper with isolation to create stacking context */}
-                <div className="relative w-full overflow-hidden isolation-auto">
-                    {/* Flex container with gap between cards */}
-                    <div
-                        className="flex flex-col md:flex-row flex-nowrap gap-4"
-                        style={{
-                            willChange: 'contents',
-                            contain: 'layout style', // Contain layout changes
-                        }}
-                    >
-                        {showcaseItems.map((item, index) => (
-                            <ShowcaseItem
-                                key={`showcase-item-${index}`}
-                                item={item}
-                                index={index}
-                                isInView={isInView}
-                                hoveredIndex={hoveredIndex}
-                                setHoveredIndex={setHoveredIndex}
-                            />
-                        ))}
-                    </div>
-                </div>
-
-                <div className={cn(
-                    "mt-6 text-center text-brand-gold/80 text-lg italic transition-all duration-300 delay-300",
-                    isInView ? "opacity-100" : "opacity-0"
-                )}>
-                    Images from the W Hotel, Leicester Square, London
-                </div>
-            </div>
-
-            {/* Scroll indicator (Optional now, maybe hide or keep) */}
-            {/* <motion.div ... logic ... /> removed or kept? User didn't say remove, but cards are there now. I'll comment it out or leave it if it fits. The cards are big, so scroll indicator might overlap. I'll remove it to be safe. */}
         </section>
     );
 };

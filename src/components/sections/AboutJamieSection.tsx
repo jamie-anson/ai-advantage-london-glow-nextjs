@@ -1,30 +1,11 @@
 
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import React from 'react';
 import { cn } from '@/lib/utils';
 
 
 const AboutJamieSection = () => {
-  const [isInView, setIsInView] = useState(true);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // if (entry.isIntersecting) {
-        //   setIsInView(true);
-        //   observer.unobserve(entry.target);
-        // }
-      },
-      { threshold: 0.3 }
-    );
-
-    const target = document.getElementById('about-jamie');
-    if (target) observer.observe(target);
-
-    return () => {
-      if (target) observer.unobserve(target);
-    };
-  }, []);
+  const isInView = true;
 
   return (
     <section id="about-jamie" className="section py-24 relative overflow-hidden">
@@ -60,6 +41,7 @@ const AboutJamieSection = () => {
                     width={640}
                     height={640}
                     className="w-full h-full object-cover"
+                    sizes="(max-width: 768px) 192px, 192px"
                   />
                 </div>
                 <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-brand-green/20 to-brand-fuchsia/20 blur-md -z-10"></div>

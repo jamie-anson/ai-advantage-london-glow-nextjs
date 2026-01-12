@@ -26,7 +26,6 @@ export default function SessionPageClient() {
                 <SessionApproachSection />
                 <AboutJamieSection />
                 <SessionAgendaSection />
-                <SessionAudienceSection />
                 <SessionCTASection />
                 <Footer />
             </div>
