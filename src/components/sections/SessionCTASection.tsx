@@ -15,7 +15,7 @@ const SessionCTASection = () => {
 
     return (
         <section ref={ref} className="py-32 px-6 relative z-10 text-center overflow-hidden">
-            {/* Background effects */}
+            <div className="absolute inset-0 bg-black/10 pointer-events-none"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-brand-green/10 to-transparent pointer-events-none"></div>
 
             <div className="container mx-auto max-w-4xl relative z-10">
@@ -23,14 +23,96 @@ const SessionCTASection = () => {
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <h2 className="text-5xl md:text-7xl font-serif font-bold text-white mb-8">
-                        Build what normally <br />
-                        <span className="italic text-white/50">takes a team</span>
-                    </h2>
+                    <div className="mb-16 md:mb-24">
+                        <span className="font-mono text-brand-green/60 uppercase tracking-widest text-sm mb-4 block">Ambition</span>
+                        <h2 className="text-5xl md:text-7xl font-serif font-bold text-white">
+                            Raise Your Ceiling
+                        </h2>
+                    </div>
 
-                    <p className="text-xl md:text-2xl text-white/80 font-light mb-12 max-w-2xl mx-auto">
-                        If you’ve felt that your ideas are bigger than your circumstances, this day is designed for you.
-                    </p>
+                    <div className="text-left text-white font-normal mb-16 max-w-3xl mx-auto space-y-8 leading-relaxed">
+                        <p className="text-xl md:text-2xl text-white font-normal tracking-tight">
+                            After this workshop, you’ll be able to design and ship a project that normally requires a full team. Alone.
+                        </p>
+
+                        <div className="space-y-4 pl-4 border-l-2 border-brand-green/30 my-8">
+                            <p className="font-medium text-white text-lg">That means:</p>
+                            <ul className="space-y-3 list-none">
+                                <li className="flex gap-3"><span className="text-brand-green mt-1">•</span> <span>A production web app</span></li>
+                                <li className="flex gap-3"><span className="text-brand-green mt-1">•</span> <span>Supported by multiple backend services running across separate servers</span></li>
+                                <li className="flex gap-3"><span className="text-brand-green mt-1">•</span> <span>Automated workflows, real data, and real users</span></li>
+                                <li className="flex gap-3"><span className="text-brand-green mt-1">•</span> <span>A clear plan for how it’s branded, positioned, and brought to market</span></li>
+                                <li className="flex gap-3"><span className="text-brand-green mt-1">•</span> <span>Designed, built, and shipped by a single operator</span></li>
+                            </ul>
+                        </div>
+
+                        <p>
+                            More than a demo.<br />
+                            A system that works.
+                        </p>
+
+                        <div className="w-24 h-px bg-brand-green/30 my-8"></div>
+
+                        <div className="space-y-6">
+                            <p className="text-xl md:text-2xl text-white font-normal tracking-tight">
+                                After this, you won’t think like anyone else in your company.
+                            </p>
+
+                            <p>
+                                Not because you’re more technical<br />
+                                but because you’ll understand how to collapse complexity into something you can actually ship.
+                            </p>
+
+                            <p>
+                                Most organisations are structurally incapable of this.<br />
+                                <span className="text-white font-medium">You won’t be.</span>
+                            </p>
+                        </div>
+
+                        <div className="w-24 h-px bg-brand-green/30 my-8"></div>
+
+                        <div className="space-y-6">
+                            <div>
+                                <p className="text-xl md:text-2xl text-white font-normal mb-4 tracking-tight">
+                                    This is rare.
+                                </p>
+                                <p>
+                                    Most people doing this work don’t teach it.
+                                </p>
+                            </div>
+
+                            <div>
+                                <p>
+                                    This isn’t taught by a YouTuber.
+                                </p>
+                                <p>
+                                    This is taught by someone who builds end-to-end systems in the real world<br />
+                                    where decisions have consequences, trade-offs matter, and things have to keep working after launch.
+                                </p>
+                                <p className="mt-4">
+                                    You’re learning directly from a full-time builder.<br />
+                                    Every framework, decision, and shortcut comes from shipping real projects under real constraints.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="w-24 h-px bg-brand-green/30 my-8"></div>
+
+                        <div className="space-y-6">
+                            <p className="text-xl md:text-2xl text-white font-normal tracking-tight">
+                                People don’t come to this to build one project.
+                            </p>
+
+                            <p>
+                                They come to permanently raise the ceiling of what they believe they can build<br />
+                                and what they’re willing to attempt next.
+                            </p>
+
+                            <p className="text-white mt-8">
+                                If you’re ready to raise your ceiling, request an invite.
+                            </p>
+                        </div>
+                    </div>
 
                     <div className="flex flex-col gap-8 mt-16 max-w-4xl mx-auto">
                         {/* Primary Offering: Reverted to original style */}

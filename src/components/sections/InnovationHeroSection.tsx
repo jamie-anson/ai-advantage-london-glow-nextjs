@@ -23,7 +23,7 @@ const InnovationHeroSection = () => {
                         <div className="mt-12 space-y-4">
                             <a
                                 href="/request-invite?source=innovation-teams"
-                                className="inline-block bg-brand-green text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-brand-green/90 transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(198,255,255,0.3)]"
+                                className="inline-block bg-white/[0.66] text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-white/90 transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.2)]"
                             >
                                 Apply to Attend
                             </a>

@@ -184,7 +184,7 @@ const SessionHeroSection = () => {
 
                         {/* Left Column: The Problem */}
                         <div className="space-y-8">
-                            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight tracking-tight text-white animate-fade-in-up">
+                            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight tracking-tight text-brand-green animate-fade-in-up">
                                 AI doesn’t <br />save time.
                             </h1>
                             <div className="h-[1px] w-24 bg-white/20 animate-fade-in animate-delay-500"></div>
@@ -192,7 +192,7 @@ const SessionHeroSection = () => {
 
                         {/* Right Column: The Solution */}
                         <div className="space-y-10">
-                            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight tracking-tight text-brand-green animate-fade-in-up animate-delay-700">
+                            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight tracking-tight text-white animate-fade-in-up animate-delay-700">
                                 Engineering <br />with AI does.
                             </h1>
 
@@ -214,7 +214,7 @@ const SessionHeroSection = () => {
                                 <div>
                                     <a
                                         href="/request-invite"
-                                        className="inline-block bg-brand-green text-black px-10 py-5 rounded-full font-bold text-lg hover:bg-brand-green/90 transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(198,255,255,0.3)]"
+                                        className="inline-block bg-white/[0.66] text-black px-10 py-5 rounded-full font-bold text-lg hover:bg-white/90 transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(255,255,255,0.2)]"
                                     >
                                         Request Invite
                                     </a>

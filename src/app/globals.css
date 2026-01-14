@@ -84,7 +84,7 @@
 
   /* Button styling */
   .btn-primary {
-    @apply bg-brand-green text-black font-medium rounded-full flex items-center justify-center gap-2 py-3 px-8 border-2 border-transparent transition-all duration-300 hover:bg-transparent hover:text-brand-green hover:border-brand-green relative overflow-hidden;
+    @apply bg-white/[0.66] text-black font-medium rounded-full flex items-center justify-center gap-2 py-3 px-8 border-2 border-transparent transition-all duration-300 hover:bg-white/90 hover:text-black relative overflow-hidden;
   }
 
   /* Section styling */

@@ -3,10 +3,10 @@ import type { Config } from "tailwindcss";
 module.exports = {
 	darkMode: "class",
 	content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+		'./src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+		'./src/components/**/*.{js,ts,jsx,tsx,mdx}',
+		'./src/app/**/*.{js,ts,jsx,tsx,mdx}',
+	],
 	prefix: "",
 	theme: {
 		container: {
@@ -96,8 +96,8 @@ module.exports = {
 					'50%': { transform: 'translateY(-10px)' }
 				},
 				'glow': {
-					'0%, 100%': { boxShadow: '0 0 15px 2px rgba(198, 255, 78, 0.5)' },
-					'50%': { boxShadow: '0 0 25px 5px rgba(198, 255, 78, 0.8)' }
+					'0%, 100%': { boxShadow: '0 0 15px 2px rgba(255, 255, 255, 0.4)' },
+					'50%': { boxShadow: '0 0 25px 5px rgba(255, 255, 255, 0.6)' }
 				}
 			},
 			animation: {
